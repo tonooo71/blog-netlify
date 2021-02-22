@@ -1,9 +1,10 @@
 ---
-title: Raspberry Pi 4にArch Linuxをインストール
+title: "Raspberry Pi 4にArch Linuxをインストール"
 date: "2020-05-17T20:58:36.185112"
 template: "post"
 draft: false
-description: インストール後のセットアップ時に詰まった点などをメモ
+description: "インストール後のセットアップ時に詰まった点などをメモ"
+category: "Tech memo"
 tags: 
   - "Arch Linux"
   - "Linux"
