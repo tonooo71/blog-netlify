@@ -7,7 +7,7 @@ module.exports = {
   subtitle: 'Tonooo\'s personal blog powered by Gatsby and Netlify CMS.',
   copyright: '© tonooo71 All rights reserved.',
   disqusShortname: 'https-tonooo71-netlify-app',
-  postsPerPage: 6,
+  postsPerPage: 4,
   googleAnalyticsId: '',
   useKatex: false,
   menu: [
