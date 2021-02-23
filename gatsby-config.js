@@ -1,7 +1,7 @@
 "use strict";
 
-const siteConfig = require("./config.jsx");
-const postCssPlugins = require("./postcss-config.jsx");
+const siteConfig = require("./config.js");
+const postCssPlugins = require("./postcss-config.js");
 
 module.exports = {
   pathPrefix: siteConfig.pathPrefix,
@@ -242,7 +242,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-optimize-svgs",
-    "gatsby-plugin-typegen",
+    // "gatsby-plugin-typegen",
     {
       resolve: `gatsby-plugin-typescript`,
       options: {

@@ -1,7 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby";
 
 const useCategoriesList = (): GatsbyTypes.MarkdownRemarkGroupConnection[] => {
-  const { allMarkdownRemark } = useStaticQuery(
+  const { allMarkdownRemark } = useStaticQuery<GatsbyTypes.CategoriesListQueryQuery>(
     graphql`
       query CategoriesListQuery {
         allMarkdownRemark(
