@@ -1,21 +1,21 @@
 ---
 date: "2018-09-11T10:04:51+09:00"
 title: "qutebrowser上でpocketへ保存する"
-description: 
-tags: 
+description:
+tags:
   - "Linux"
 template: "post"
 draft: false
-category: "Tech memo"
+category: "Article"
 ---
 
-最近使い始めたqutebrowser、結構使いやすいのもあってメインブラウザがこっちになりつつある  
-問題点としてはFirefoxだったりChromeで使っていたアドオンが基本的に使えないってのがあったけど、個人的にはlastpassとadblock程度しか使っていなかったからそこまで問題はなく使えてる(lastpassは公式でスクリプトが用意されているし)  
+最近使い始めた qutebrowser、結構使いやすいのもあってメインブラウザがこっちになりつつある  
+問題点としては Firefox だったり Chrome で使っていたアドオンが基本的に使えないってのがあったけど、個人的には lastpass と adblock 程度しか使っていなかったからそこまで問題はなく使えてる(lastpass は公式でスクリプトが用意されているし)  
 また、`spawn`コマンドでターミナル上でスクリプトを実行できるので簡単なアドオンなら追加できる  
-そこで後で読むサービスの1つであるpocketに表示している記事を保存するスクリプトなら簡単にかけそうだったので書いてみた  
-いろいろ調べるとpocketのpythonモジュール、ラッパーが結構存在している気がするが、記事を追加するだけであれば必要ないので使っていない  
+そこで後で読むサービスの 1 つである pocket に表示している記事を保存するスクリプトなら簡単にかけそうだったので書いてみた  
+いろいろ調べると pocket の python モジュール、ラッパーが結構存在している気がするが、記事を追加するだけであれば必要ないので使っていない
 
-そして書いたものがこれ  
+そして書いたものがこれ
 
 ```python
 #!/usr/bin/python
@@ -28,9 +28,9 @@ access_token = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 requests.post('https://getpocket.com/v3/add', {'url': url, 'consumer_key': consumer_key, 'access_token': access_token})
 ```
-  
-consumer keyとaccess tokenを事前に取得しておく必要がある  
-実行権限を与えたあとで、`config.py`に次のようにでも書けば良い  
+
+consumer key と access token を事前に取得しておく必要がある  
+実行権限を与えたあとで、`config.py`に次のようにでも書けば良い
 
 ```
 c.aliases = {'pocket': 'spawn ~/.config/qutebrowser/scripts/pocket.py {url}'}
@@ -41,8 +41,8 @@ c.aliases = {'pocket': 'spawn ~/.config/qutebrowser/scripts/pocket.py {url}'}
 
 ### 追記
 
-保存メッセージはdunst使おうかなとも思ったけど、message-infoとしてqutebrowserに表示させることにした  
-けどqutebrowserの環境変数?みたいなのはPythonスクリプト内でどう利用したら良いかわからなかったので、一旦シェルスクリプトを経由させるようにした  
+保存メッセージは dunst 使おうかなとも思ったけど、message-info として qutebrowser に表示させることにした  
+けど qutebrowser の環境変数?みたいなのは Python スクリプト内でどう利用したら良いかわからなかったので、一旦シェルスクリプトを経由させるようにした
 
 ### Refference
 

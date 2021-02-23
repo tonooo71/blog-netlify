@@ -3,19 +3,19 @@ title: "React Hooksで作るメニュー外クリックで閉じるドロップ�
 date: "2020-03-01T21:38:23.133989"
 description: "React Hooksを用いてBootstrapみたいなドロップダウンメニューを作る"
 template: "post"
-tags: 
+tags:
   - "React"
 draft: false
-category: "Tech memo"
+category: "Article"
 ---
 
 ## はじめに
 
-これまでドロップダウンメニューが必要な時はReact Bootstrapを用いていたのですが、自力でドロップダウンメニューを作る必要があったので、そのときの試行錯誤をメモとして残します。
+これまでドロップダウンメニューが必要な時は React Bootstrap を用いていたのですが、自力でドロップダウンメニューを作る必要があったので、そのときの試行錯誤をメモとして残します。
 ドロップダウンメニューが満たしてほしい仕様は以下の通りです。
 
-  1. ボタンクリックでメニューを表示/非表示
-  1. メニュー外をクリックしてもメニューが非表示になる
+1. ボタンクリックでメニューを表示/非表示
+1. メニュー外をクリックしてもメニューが非表示になる
 
 ## Step 1
 
@@ -24,36 +24,43 @@ category: "Tech memo"
 
 ```jsx
 const Dropdown1 = () => {
-  const[isOpenMenu, setIsOpenMenu] = React.useState(false);
+  const [isOpenMenu, setIsOpenMenu] = React.useState(false);
   const handleClick = (text) => () => {
     alert(text);
     setIsOpenMenu(false);
   };
   return (
-    <div className="menu-container" 
-      onClick={() => setIsOpenMenu(!isOpenMenu)}>
-      <div className="menuButton">
-        Menu 1
-      </div>
+    <div className="menu-container" onClick={() => setIsOpenMenu(!isOpenMenu)}>
+      <div className="menuButton">Menu 1</div>
       <ul className="menu" hidden={!isOpenMenu}>
-        <li className="item" onClick={handleClick("a")}> a </li>
-        <li className="item" onClick={handleClick("b")}> b </li>
-        <li className="item" onClick={handleClick("c")}> c </li>
+        <li className="item" onClick={handleClick("a")}>
+          {" "}
+          a{" "}
+        </li>
+        <li className="item" onClick={handleClick("b")}>
+          {" "}
+          b{" "}
+        </li>
+        <li className="item" onClick={handleClick("c")}>
+          {" "}
+          c{" "}
+        </li>
       </ul>
     </div>
   );
 };
 ```
-[CodePenでソースを見る](https://codepen.io/tonooo71/pen/OJPdvpL)
+
+[CodePen でソースを見る](https://codepen.io/tonooo71/pen/OJPdvpL)
 
 ## Step 2
 
-このStep 1のメニューではメニューを表示した状態でメニュー外をクリックしてもメニューが閉じません。
+この Step 1 のメニューではメニューを表示した状態でメニュー外をクリックしてもメニューが閉じません。
 なので`useRef`と`useEffect`を使って、ボタンをクリックするとドロップダウンメニューにフォーカスが来るようにし、フォーカスが外れた時に`onBlur`イベントにメニューを閉じる関数を登録します。
 
 ```jsx
 const Dropdown2 = () => {
-  const[isOpenMenu, setIsOpenMenu] = React.useState(false);
+  const [isOpenMenu, setIsOpenMenu] = React.useState(false);
   const menuRef = React.useRef(null);
   React.useEffect(() => {
     isOpenMenu && menuRef.current.focus();
@@ -62,34 +69,44 @@ const Dropdown2 = () => {
     alert(text);
   };
   return (
-    <div className="menu-container" 
+    <div
+      className="menu-container"
       onClick={() => setIsOpenMenu(!isOpenMenu)}
       ref={menuRef}
       onBlur={() => setIsOpenMenu(false)}
-      tabIndex={0}>
-      <div className="menuButton">
-        Menu 2
-      </div>
+      tabIndex={0}
+    >
+      <div className="menuButton">Menu 2</div>
       <ul className="menu" hidden={!isOpenMenu}>
-        <li className="item" onClick={handleClick("a")}> a </li>
-        <li className="item" onClick={handleClick("b")}> b </li>
-        <li className="item" onClick={handleClick("c")}> c </li>
+        <li className="item" onClick={handleClick("a")}>
+          {" "}
+          a{" "}
+        </li>
+        <li className="item" onClick={handleClick("b")}>
+          {" "}
+          b{" "}
+        </li>
+        <li className="item" onClick={handleClick("c")}>
+          {" "}
+          c{" "}
+        </li>
       </ul>
     </div>
   );
 };
 ```
-[CodePenでソースを見る](https://codepen.io/tonooo71/pen/OJPdvpL)
+
+[CodePen でソースを見る](https://codepen.io/tonooo71/pen/OJPdvpL)
 
 ## Step 3
 
-Step 2のドロップダウンメニューにメニューアイテム間のセパレータとサブメニューを同様に追加してみます。
+Step 2 のドロップダウンメニューにメニューアイテム間のセパレータとサブメニューを同様に追加してみます。
 
 ![image.png](/media/2020-03-01-step3.png)
 
 ```jsx
 const Dropdown3 = () => {
-  const[isOpenMenu, setIsOpenMenu] = React.useState(false);
+  const [isOpenMenu, setIsOpenMenu] = React.useState(false);
   const menuRef = React.useRef(null);
   React.useEffect(() => {
     isOpenMenu && menuRef.current.focus();
@@ -98,23 +115,36 @@ const Dropdown3 = () => {
     alert(text);
   };
   return (
-    <div className="menu-container" 
+    <div
+      className="menu-container"
       onClick={() => setIsOpenMenu(!isOpenMenu)}
       ref={menuRef}
       onBlur={() => setIsOpenMenu(false)}
-      tabIndex={0}>
-      <div className="menuButton">
-        Menu 3
-      </div>
+      tabIndex={0}
+    >
+      <div className="menuButton">Menu 3</div>
       <ul className="menu" hidden={!isOpenMenu}>
-        <li className="item" onClick={handleClick("a")}> a </li>
+        <li className="item" onClick={handleClick("a")}>
+          {" "}
+          a{" "}
+        </li>
         <li className="separator"></li>
-        <li className="item" onClick={handleClick("b")}> b </li>
-        <li className="item"> c 
-          <span>▶</span>
+        <li className="item" onClick={handleClick("b")}>
+          {" "}
+          b{" "}
+        </li>
+        <li className="item">
+          {" "}
+          c<span>▶</span>
           <ul className="submenu">
-            <li className="item" onClick={handleClick("c-1")}> c-1 </li>
-            <li className="item" onClick={handleClick("c-2")}> c-2 </li>
+            <li className="item" onClick={handleClick("c-1")}>
+              {" "}
+              c-1{" "}
+            </li>
+            <li className="item" onClick={handleClick("c-2")}>
+              {" "}
+              c-2{" "}
+            </li>
           </ul>
         </li>
       </ul>
@@ -122,7 +152,8 @@ const Dropdown3 = () => {
   );
 };
 ```
-[CodePenでソースを見る](https://codepen.io/tonooo71/pen/OJPdvpL)
+
+[CodePen でソースを見る](https://codepen.io/tonooo71/pen/OJPdvpL)
 
 一見動作するのですが、少しおかしい挙動が見られます。
 というのは、セパレータとサブメニュー「c」をクリックしてもメニューが閉じてしまうのです。
@@ -135,7 +166,7 @@ const Dropdown3 = () => {
 
 ```jsx
 const Dropdown4 = () => {
-  const[isOpenMenu, setIsOpenMenu] = React.useState(false);
+  const [isOpenMenu, setIsOpenMenu] = React.useState(false);
   const menuRef = React.useRef(null);
   React.useEffect(() => {
     isOpenMenu && menuRef.current.focus();
@@ -144,23 +175,40 @@ const Dropdown4 = () => {
     alert(text);
   };
   return (
-    <div className="menu-container" 
+    <div
+      className="menu-container"
       onClick={() => setIsOpenMenu(!isOpenMenu)}
       ref={menuRef}
       onBlur={() => setIsOpenMenu(false)}
-      tabIndex={0}>
-      <div className="menuButton">
-        Menu 4
-      </div>
-      <ul className="menu" hidden={!isOpenMenu} onClick={(e) => e.stopPropagation()}>
-        <li className="item" onClick={handleClick("a")}> a </li>
+      tabIndex={0}
+    >
+      <div className="menuButton">Menu 4</div>
+      <ul
+        className="menu"
+        hidden={!isOpenMenu}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <li className="item" onClick={handleClick("a")}>
+          {" "}
+          a{" "}
+        </li>
         <li className="separator"></li>
-        <li className="item" onClick={handleClick("b")}> b </li>
-        <li className="item" onClick={(e) => e.stopPropagation()}> c 
-          <span>▶</span>
+        <li className="item" onClick={handleClick("b")}>
+          {" "}
+          b{" "}
+        </li>
+        <li className="item" onClick={(e) => e.stopPropagation()}>
+          {" "}
+          c<span>▶</span>
           <ul className="submenu">
-            <li className="item" onClick={handleClick("c-1")}> c-1 </li>
-            <li className="item" onClick={handleClick("c-2")}> c-2 </li>
+            <li className="item" onClick={handleClick("c-1")}>
+              {" "}
+              c-1{" "}
+            </li>
+            <li className="item" onClick={handleClick("c-2")}>
+              {" "}
+              c-2{" "}
+            </li>
           </ul>
         </li>
       </ul>
@@ -168,11 +216,12 @@ const Dropdown4 = () => {
   );
 };
 ```
-[CodePenでソースを見る](https://codepen.io/tonooo71/pen/OJPdvpL)
+
+[CodePen でソースを見る](https://codepen.io/tonooo71/pen/OJPdvpL)
 
 ## 以上
 
 です。
 
-Qiitaにも書きました  
-[React+Hookで作るメニュー外クリックで閉じるドロップダウンメニュー](https://qiita.com/Tonooo/items/beaa6c0ab83d2b7c213d)
+Qiita にも書きました  
+[React+Hook で作るメニュー外クリックで閉じるドロップダウンメニュー](https://qiita.com/Tonooo/items/beaa6c0ab83d2b7c213d)
