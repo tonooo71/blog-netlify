@@ -3,51 +3,51 @@ title: "i3wm + Arch Linux初期環境構築まとめ"
 date: "2018-08-04T17:40:07.370970"
 description: "Arch Linuxにタイル型ウィンドウマネージャi3wmを入れた時のセットアップまとめ"
 template: "post"
-tags: 
+tags:
   - "i3wm"
   - "Linux"
   - "Arch Linux"
 draft: false
-category: "Tech memo"
+category: "Article"
 ---
 
 ## 概要
 
-なんでi3wmというWindow Managerを使うようになったかというと、ノートPCをArch Linux+Gnomeで使用していて以下のような気になる点があったからです。
+なんで i3wm という Window Manager を使うようになったかというと、ノート PC を Arch Linux+Gnome で使用していて以下のような気になる点があったからです。
 
 - 画面が小さいので、無駄なくウィンドウを整列させて使いたい
 - タッチパッドでの操作がしにくいので、キーボードで基本的な操作を完結させたい
-- Gnomeは(比較的)重い(らしい)ので、軽いウィンドウマネージャを使いたい
+- Gnome は(比較的)重い(らしい)ので、軽いウィンドウマネージャを使いたい
 
-実際使ってみると軽いしキーボードで操作しやすいし、なんならGUIじゃなくてCUIのアプリケーション使うようになったりといった変化もありました。
+実際使ってみると軽いしキーボードで操作しやすいし、なんなら GUI じゃなくて CUI のアプリケーション使うようになったりといった変化もありました。
 
-ただArch Linuxをインストールした上でWindows Managerをi3wmだけインストールすると、いろいろ設定したりパッケージをインストールしたりするのがね...面倒...
+ただ Arch Linux をインストールした上で Windows Manager を i3wm だけインストールすると、いろいろ設定したりパッケージをインストールしたりするのがね...面倒...
 
-Arch Linuxのインストールは[ArchWiki: インストールガイド](https://wiki.archlinux.jp/index.php/%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%82%AC%E3%82%A4%E3%83%89)のとおりにやりましたがここは省略。
+Arch Linux のインストールは[ArchWiki: インストールガイド](https://wiki.archlinux.jp/index.php/%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%82%AC%E3%82%A4%E3%83%89)のとおりにやりましたがここは省略。
 
-## i3wmインストール
+## i3wm インストール
 
 `i3-wm`と`i3status`、`dmenu`(ランチャー)をインストールします。
 (`i3status`と`dmenu`は後で別のものに置き換えますが、設定しなくとも使えるのでまずはこれをインストールしておきます)
-初期設定でModキーをどこにするか聞かれますが、Windowsの入っていたPCならWinキーであるMod4が無難だと思います。
+初期設定で Mod キーをどこにするか聞かれますが、Windows の入っていた PC なら Win キーである Mod4 が無難だと思います。
 
 ディスプレイマネージャとして`LightDM`、あとはターミナルを何かインストールしておきます。
 
-ノートPCなら省電力用に`tlp`とかインストールしておくのもあり。
+ノート PC なら省電力用に`tlp`とかインストールしておくのもあり。
 
 ### ネットワーク設定
 
 ネットワーク管理のためのパッケージをインストールします。(私は`NetworkManager`にしています)
-`NetworkManager.service`は`dhcpcd.service`と競合するので、`dhcpcd.service`をdisableする必要があります。
+`NetworkManager.service`は`dhcpcd.service`と競合するので、`dhcpcd.service`を disable する必要があります。
 
-Bluetoothを使用するには`bluez`と`bluez-utils`を導入します。
-(PluseAudioを使用していてBluetoothヘッドホン使いたいなら`pulseaudio-bluetooth`もインストールする必要がありそうです)
-このままでもCLIで接続設定することができますが([Bluetooth: CLIによる設定](https://wiki.archlinux.jp/index.php/Bluetooth#CLI_.E3.81.AB.E3.82.88.E3.82.8B.E8.A8.AD.E5.AE.9A))、私はGUIで設定したいので`Blueman`をインストールしました。
+Bluetooth を使用するには`bluez`と`bluez-utils`を導入します。
+(PluseAudio を使用していて Bluetooth ヘッドホン使いたいなら`pulseaudio-bluetooth`もインストールする必要がありそうです)
+このままでも CLI で接続設定することができますが([Bluetooth: CLI による設定](https://wiki.archlinux.jp/index.php/Bluetooth#CLI_.E3.81.AB.E3.82.88.E3.82.8B.E8.A8.AD.E5.AE.9A))、私は GUI で設定したいので`Blueman`をインストールしました。
 
 ### Fcitx
 
-日本語入力するためにFcitxとMozcをインストールします。
-あとは日本語フォントも適当に入れておきます。(Noto fontとかipafontとか)
+日本語入力するために Fcitx と Mozc をインストールします。
+あとは日本語フォントも適当に入れておきます。(Noto font とか ipafont とか)
 
 ```shell
 sudo pacman -S fcitx fcitx-mozc fcitx-im fcitx-configtool
@@ -65,17 +65,17 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 ```
 
-fcitxを起動したら、fcitx-configtoolから適当なキーボードとmozcを追加します。
+fcitx を起動したら、fcitx-configtool から適当なキーボードと mozc を追加します。
 
-## i3関連
+## i3 関連
 
-i3は`~/.config/i3/config`に設定を記述することでカスタマイズが可能です。
+i3 は`~/.config/i3/config`に設定を記述することでカスタマイズが可能です。
 ここで設定可能な項目は、だいたいキーバインドとアプリケーション設定がほとんどです。
 
 ### キーバインド
 
 ほとんどデフォルトのままですが、追加した設定をいくつか記述します
-3つめのはマルチディスプレイのときにワークスペースを移動するためのものです。
+3 つめのはマルチディスプレイのときにワークスペースを移動するためのものです。
 
 ~/.config/i3/config
 
@@ -101,7 +101,7 @@ bindsym $mod+Shift+Next move workspace to output down
 #### 輝度
 
 [バックライト(ArchWiki)](https://wiki.archlinux.jp/index.php/バックライト)を参照。
-輝度の調整をキーに割り当てるには、`xorg-xbacklight`パッケージの`xbacklight`コマンドを使ってconfigに書き込みます。
+輝度の調整をキーに割り当てるには、`xorg-xbacklight`パッケージの`xbacklight`コマンドを使って config に書き込みます。
 
 ~/.config/i3/config
 
@@ -115,7 +115,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 まず`pulseaudio`と設定ツールである`pavucontrol`をインストールします。
 `pluseaudio`のフロントエンドとしては`pamixer`などが存在します。(あとで使うのでインストールしておきました)
-あとflashの音を出すために`pulseaudio-alsa`が必要です。
+あと flash の音を出すために`pulseaudio-alsa`が必要です。
 
 ~/.config/i3/config
 
@@ -128,7 +128,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 #### スクリーンショット
 
-せっかくなのでスクリーンショットもPrtScrキーで動作させます。
+せっかくなのでスクリーンショットも PrtScr キーで動作させます。
 スクリーンショットには`imagemagick`パッケージを使用します。
 ]
 ~/.config/i3/config
@@ -142,7 +142,7 @@ bindsym Print exec --no-startup-id import -window root ~/Pictures/screenshot`dat
 
 #### 壁紙
 
-`feh`で設定します。(fehは軽量の画像ビューアです)
+`feh`で設定します。(feh は軽量の画像ビューアです)
 
 ```shell
 feh --bg-scale ~/Pictures/wallpaper.png
@@ -159,7 +159,7 @@ feh --bg-scale ~/Pictures/wallpaper.png
 #### 外部モニタ
 
 まず`xrandr`をインストールします。
-そしてHDMIポートやVGAポートに接続された際に、自動的に画面を拡張するようなスクリプトを書いた上で、自動起動させておきます。(スクリプトはご自身の環境に合わせてください)
+そして HDMI ポートや VGA ポートに接続された際に、自動的に画面を拡張するようなスクリプトを書いた上で、自動起動させておきます。(スクリプトはご自身の環境に合わせてください)
 
 ~/.config/i3/config
 
@@ -193,7 +193,7 @@ done
 
 #### 蓋を閉じたときの動作
 
-ノートPCなので、蓋を閉じたらサスペンドするように変更します。
+ノート PC なので、蓋を閉じたらサスペンドするように変更します。
 
 /etc/systemd/logind.conf
 
@@ -204,7 +204,7 @@ HandleLidSwitch=suspend
 #### 画面ロック
 
 `i3lock`が標準で推奨されているようですが、マルチモニタで壁紙がずれるので`light-locker`を使います。
-これだとLightDMのログイン画面と同じになります。
+これだと LightDM のログイン画面と同じになります。
 `light-locker`をサスペンドから起動した後に使用するには、
 
 ~/.config/i3/config
@@ -213,16 +213,16 @@ HandleLidSwitch=suspend
 exec --no-startup-id light-locker --lock-on-suspend
 ```
 
-### dmenuの代替
+### dmenu の代替
 
 `rofi`が上位互換として使えます。
 これについてはこちらのサイト([Jenemal Notes](http://malkalech.com/rofi_window_switcher))に詳しく説明されているので割愛します。
 
-### i3statusの代替
+### i3status の代替
 
 自作スクリプトを適用できたり、見た目をより柔軟に変えられるパッケージが存在します。
 シンプルながらある程度の拡張性がある`i3blocks`と、外観までかなり自由に変えることができる`polybar`があります。
-詳しい設定は省きますが、`i3blocks`も`polybar`も設定ファイルはGitHubに上げていますので良ければ。
+詳しい設定は省きますが、`i3blocks`も`polybar`も設定ファイルは GitHub に上げていますので良ければ。
 `polybar`に関しては[別記事](https://tonooo71.github.io/post/180607_polybar_setting/)にも書いています。
 
 ### config(一部)
@@ -290,9 +290,9 @@ for_window [class="Gnome-terminal"] floating enable move absolute position 990 p
 
 ```
 
-最後のapplication setting(float)では、タイルではなく通常のウィンドウのような感じで表示させるアプリの指定ができます。
+最後の application setting(float)では、タイルではなく通常のウィンドウのような感じで表示させるアプリの指定ができます。
 基本的には設定ツールに適用しています。
-`lxappearance`はGTK+テーマやアイコン、ポインタを変更することができるツールです。
+`lxappearance`は GTK+テーマやアイコン、ポインタを変更することができるツールです。
 アプリのクラス名を調べるためには`xorg-xprop`パッケージをインストールして、
 
 ```shell
@@ -310,8 +310,8 @@ WM_CLASS(STRING) = "urxvt", "URxvt"
 ### 最後に
 
 本当に使いやすいです。
-基本的にキーボードで操作できるということもあって、同様にキーボードで操作できるCUIアプリケーションを使うようになりましたね。(`ranger`とか`neovim`とか`ncmpcpp`とか)
-メモリも起動時で0.2~0.3GB程度しか使用しておらずかなり軽量なのも良いです。
+基本的にキーボードで操作できるということもあって、同様にキーボードで操作できる CUI アプリケーションを使うようになりましたね。(`ranger`とか`neovim`とか`ncmpcpp`とか)
+メモリも起動時で 0.2~0.3GB 程度しか使用しておらずかなり軽量なのも良いです。
 
 ### Source
 
@@ -319,4 +319,4 @@ WM_CLASS(STRING) = "urxvt", "URxvt"
 
 ### Qiita
 
-[Qiita: i3+Arch Linux初期環境構築まとめ](https://qiita.com/Tonooo/items/256fcaffd7113b1ed018)
+[Qiita: i3+Arch Linux 初期環境構築まとめ](https://qiita.com/Tonooo/items/256fcaffd7113b1ed018)

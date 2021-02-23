@@ -2,24 +2,24 @@
 date: "2018-09-12T21:59:44+09:00"
 title: "qutebrowserで英和辞書を使う"
 description: "スクリプトで対応させる"
-tags: 
+tags:
   - "Linux"
 template: "post"
 socialImage: "/media/2018-09-12-screenshot_ejdict.jpg"
 draft: false
-category: "Tech memo"
+category: "Article"
 ---
 
-qutebrowserはアドオンが自由に追加できないのがあれだけど、`spawn`コマンドで簡単なものなら割とスクリプトで対応できるのが良い点  
+qutebrowser はアドオンが自由に追加できないのがあれだけど、`spawn`コマンドで簡単なものなら割とスクリプトで対応できるのが良い点  
 今回は[この記事](https://qiita.com/wtetsu/items/c43232c6c44918e977c9)読んでそういえばポップアップの辞書ほしいな、と思ったので作ってみた  
-とはいってもポップアップの仕方とかJavascriptとかわからないし、ものすごく単純なものだけど  
+とはいってもポップアップの仕方とか Javascript とかわからないし、ものすごく単純なものだけど
 
 ## 用意するもの
 
-先程の記事にもあったようにejdic-handを使わせていただきます  
+先程の記事にもあったように ejdic-hand を使わせていただきます  
 まああんまり詳細なものだと表示しきれるか怪しいし、こんなもんでいいかなって...  
-ejdic-handは(ワード)(タブ)(説明)のように1行で1つのワードが書かれたtxtファイルです  
-なのでpythonで読み込んでそのまま検索させます  
+ejdic-hand は(ワード)(タブ)(説明)のように 1 行で 1 つのワードが書かれた txt ファイルです  
+なので python で読み込んでそのまま検索させます
 
 ```python
 import os
@@ -68,10 +68,10 @@ with open(us_dir+'/ejdict/EJDict/src/ejdic-hand-utf8.txt') as lines:
         sys.exit(1)
 ```
 
-まあ全てはカバーできないですが、基本的な変化をするワードについてはカバーできているはずです  
-  
+まあ全てはカバーできないですが、基本的な変化をするワードについてはカバーできているはずです
+
 そしてこれをシェルスクリプトを通して実行します  
-シェルスクリプトを通す理由は、qutebrowserでuserscriptを実行した際に使用できる[変数](https://github.com/qutebrowser/qutebrowser/blob/master/doc/userscripts.asciidoc)をpythonスクリプト内から利用する方法がわからなかったからです...  
+シェルスクリプトを通す理由は、qutebrowser で userscript を実行した際に使用できる[変数](https://github.com/qutebrowser/qutebrowser/blob/master/doc/userscripts.asciidoc)を python スクリプト内から利用する方法がわからなかったからです...
 
 ```bash
 #!/bin/bash
@@ -89,15 +89,15 @@ fi
 ```
 
 `$QUTE_SELECTED_TEXT`は選択したテキストを指します  
-これで選択したワードをpythonスクリプトに渡し、返り値をqutebrowserの`message-info`を通して表示させます  
-こんな感じに表示されます  
+これで選択したワードを python スクリプトに渡し、返り値を qutebrowser の`message-info`を通して表示させます  
+こんな感じに表示されます
 
 ![Screenshot ejdict](/media/2018-09-12-screenshot_ejdict.jpg)
 
-`message-info`で表示する都合上、デフォルトの2000msでは早すぎるはずなので5000msに変更しました  
-あとはバインドでeかなにかに設定すると、テキスト選択してキー押すだけで写真のように日本語訳が下に表示されるようになります  
-  
-使った感想としては、オフラインだからかかなり高速ですが辞書が弱いからかヒットしない語句もちらほら見受けられるのがちょっと気になりました  
+`message-info`で表示する都合上、デフォルトの 2000ms では早すぎるはずなので 5000ms に変更しました  
+あとはバインドで e かなにかに設定すると、テキスト選択してキー押すだけで写真のように日本語訳が下に表示されるようになります
+
+使った感想としては、オフラインだからかかなり高速ですが辞書が弱いからかヒットしない語句もちらほら見受けられるのがちょっと気になりました
 
 ## Refference
 

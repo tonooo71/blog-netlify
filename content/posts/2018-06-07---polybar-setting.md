@@ -3,9 +3,9 @@ date: "2018-06-07T13:24:32+09:00"
 title: "Polybarの設定"
 description: "前回に引き続きPolybarの設定"
 template: "post"
-category: "Tech memo"
+category: "Article"
 draft: false
-tags: 
+tags:
   - "Linux"
   - "i3wm"
 socialImage: "/media/2018-06-07-screenshot1806071323.jpg"
@@ -15,19 +15,19 @@ socialImage: "/media/2018-06-07-screenshot1806071323.jpg"
 
 ![Screenshot1806071323](/media/2018-06-07-screenshot1806071323.jpg)
 
-色はNeoVimのOnedarkテーマに揃えた
+色は NeoVim の Onedark テーマに揃えた
 
-i3blocksよりも色々設定できたり便利になってよかった、思ってたよりもメモリ消費量も変わらなかったしいい感じ
+i3blocks よりも色々設定できたり便利になってよかった、思ってたよりもメモリ消費量も変わらなかったしいい感じ
 
 ### ワークスペース
 
-左端にあるやつ、使用していないワークスペースも常に表示させておきたかったんだけど、そういうのは現状のi3wmでは無理なのかな？
+左端にあるやつ、使用していないワークスペースも常に表示させておきたかったんだけど、そういうのは現状の i3wm では無理なのかな？
 
 "+"はワークスペースを一つ増やすボタン、使用していないワークスペースのうち最も若い番号のワークスペースに遷移する
 
-Virtual Box起動させるとModキーが使用できなくなってワークスペース増やせないのが不便だったので作った
+Virtual Box 起動させると Mod キーが使用できなくなってワークスペース増やせないのが不便だったので作った
 
-キーバインディングとしてはMod+HankakuZenkakuにしてある
+キーバインディングとしては Mod+HankakuZenkaku にしてある
 
 あんま使わないかなーと思ってたけど、何番のワークスペースがあいているか確認してからワークスペース開いていた動作がなくなるのもあって結構よく使うようになった
 
@@ -35,25 +35,25 @@ Virtual Box起動させるとModキーが使用できなくなってワークス
 
 音楽鳴らせますね
 
-i3blockだとクリックの種類で再生だったり曲の遷移だったりを変えていたのが、Polybarだた各ボタンで操作可能なのが便利
+i3block だとクリックの種類で再生だったり曲の遷移だったりを変えていたのが、Polybar だた各ボタンで操作可能なのが便利
 
 ### システムトレイ
 
 表示されるのは次の項目
 
-* Bluetooth接続状態(接続時のみ表示)
-* アップデートの有無(アップデートがあるときだけ表示)
-* ネットワーク(有線or無線-SSID)
-* メモリ消費量
-* バッテリー
-* 音量
-* 時計
+- Bluetooth 接続状態(接続時のみ表示)
+- アップデートの有無(アップデートがあるときだけ表示)
+- ネットワーク(有線 or 無線-SSID)
+- メモリ消費量
+- バッテリー
+- 音量
+- 時計
 
 ## 設定ファイル
 
 ### launch.sh
 
-Polybar、Mod+Shift+rでi3wmを再読込するとワークスペースのモジュールが動作しなくなってしまうので、そのへんを考慮した
+Polybar、Mod+Shift+r で i3wm を再読込するとワークスペースのモジュールが動作しなくなってしまうので、そのへんを考慮した
 
 ```sh
 #!/bin/bash
@@ -76,13 +76,13 @@ polybar HDMI1 &
 polybar DP2
 ```
 
-引数に`restart`を書くとi3wmを再読込してからPolybarを再起動する
+引数に`restart`を書くと i3wm を再読込してから Polybar を再起動する
 
 ### config
 
-Polybarはもともとモジュールをいくつも持っていて、デフォルトだとそれらから構成されているんだけど、若干出力がクドかったり冗長だなと感じたのでi3blocksのときに作ったモジュールをほとんど流用した
+Polybar はもともとモジュールをいくつも持っていて、デフォルトだとそれらから構成されているんだけど、若干出力がクドかったり冗長だなと感じたので i3blocks のときに作ったモジュールをほとんど流用した
 
-カスタムモジュールを使うのも結構楽だったので、そのへんはWikiがちゃんと充実してるから見ながらやればだいたいできると思う
+カスタムモジュールを使うのも結構楽だったので、そのへんは Wiki がちゃんと充実してるから見ながらやればだいたいできると思う
 
 ```conf
 [colors]
@@ -134,7 +134,7 @@ modules-right = bluetooth update network memory battery volume date
 separator =
 dim-value = 1.0
 
-;tray-position = 
+;tray-position =
 ;tray-padding = 0
 ;tray-transparent = false
 ;tray-background = ${root.background}
@@ -298,11 +298,11 @@ margin-bottom = 5
 
 ### Scripts
 
-i3blocksで使っていたのは省略して、新しく作ったのを紹介
+i3blocks で使っていたのは省略して、新しく作ったのを紹介
 
-ワークスペース増やすボタンのやつです、ほんとはシェルスクリプトで書ければよかったんだけどPythonで書くのが簡単そうだったので逃げた
+ワークスペース増やすボタンのやつです、ほんとはシェルスクリプトで書ければよかったんだけど Python で書くのが簡単そうだったので逃げた
 
-i3wmにはPythonモジュールがあって結構いろいろ使うことができるみたい
+i3wm には Python モジュールがあって結構いろいろ使うことができるみたい
 
 ```python
 #!/usr/bin/python
@@ -325,4 +325,3 @@ for i in ws_list:
 ## Reference
 
 [GitHub-tonooo71:polybar](https://github.com/tonooo71/dotfiles/tree/master/.config/polybar)
-

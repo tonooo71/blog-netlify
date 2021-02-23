@@ -1,55 +1,55 @@
 ---
 date: "2018-07-16T02:05:47+09:00"
 title: "Arch Linux再インストールで詰まった点"
-description: 
+description:
 template: "post"
-tags: 
+tags:
   - "Linux"
   - "Arch Linux"
 draft: false
-category: "Tech memo"
+category: "Article"
 ---
 
 ## デュアルブート
 
 Windows: 80GB  
-Arch Linux: 160GB  
-  
-Windowsのパーティションツールでは120GBぐらいまでしかできなかったから、フリーソフト使用した
+Arch Linux: 160GB
 
-## Arch Linuxインストール
+Windows のパーティションツールでは 120GB ぐらいまでしかできなかったから、フリーソフト使用した
 
-arch-chrootでインストールすべきもの  
+## Arch Linux インストール
 
-  * NetworkManager
-  * tlp
+arch-chroot でインストールすべきもの
 
-## Arch Linux設定
+- NetworkManager
+- tlp
+
+## Arch Linux 設定
 
 #### 日本語キーボード
 
 `loadkeys jp106`しているのにターミナル上で日本語キーボードにならない(英語キーボードになる)  
 これは`setxkbmap -layout jp`とすることで治る  
-`loadkeys jp106`はCUI環境に限り有効らしい
+`loadkeys jp106`は CUI 環境に限り有効らしい
 
-#### ncmpcppでmp3が表示されない
+#### ncmpcpp で mp3 が表示されない
 
 `u`を押してロードするのを忘れていた
 
-#### yaourtがない
+#### yaourt がない
 
-というかarchlinux.frに繋がらない...  
+というか archlinux.fr に繋がらない...  
 手動で`yay`をインストールした
 
 #### ranger
 
-rangerだけはdotfilesに一部の設定ファイルしか保存してないので、一旦設定をコピーしてからdotfilesのファイルで上書きする  
+ranger だけは dotfiles に一部の設定ファイルしか保存してないので、一旦設定をコピーしてから dotfiles のファイルで上書きする
 
 ```
 $ ranger --copy-config=all
 ```
 
-#### USB認識
+#### USB 認識
 
 今回もマジでよくわからなかった  
-Udisksっぽいんだけど、結局Nautilusで解決してしまった
+Udisks っぽいんだけど、結局 Nautilus で解決してしまった
