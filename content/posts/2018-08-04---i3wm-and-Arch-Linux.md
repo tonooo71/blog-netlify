@@ -1,6 +1,7 @@
 ---
 title: "i3wm + Arch Linux初期環境構築まとめ"
 date: "2018-08-04T17:40:07.370970"
+slug: i3wm-and-Arch-Linux
 description: "Arch Linuxにタイル型ウィンドウマネージャi3wmを入れた時のセットアップまとめ"
 template: "post"
 tags:

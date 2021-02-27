@@ -1,6 +1,7 @@
 ---
 date: "2018-09-06T16:54:40+09:00"
 title: "Rofiを使って簡単なMPDクライアントを作った"
+slug: rofi-mpd-client
 description:
 template: "post"
 tags:

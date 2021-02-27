@@ -1,5 +1,6 @@
 ---
 title: "デスク周りの環境紹介"
+slug: remotework-environment
 date: "2020-05-05T22:38:08.912292"
 description: "リモートワークのための環境準備を進めていくうちに色々なものを買ったので、レビューがてらデスク周りのものを紹介"
 template: "post"

@@ -1,6 +1,7 @@
 ---
 date: "2018-09-12T21:59:44+09:00"
 title: "qutebrowserで英和辞書を使う"
+slug: ejdict-for-qb
 description: "スクリプトで対応させる"
 tags:
   - "Linux"

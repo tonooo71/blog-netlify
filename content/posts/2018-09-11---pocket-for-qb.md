@@ -1,6 +1,7 @@
 ---
 date: "2018-09-11T10:04:51+09:00"
 title: "qutebrowser上でpocketへ保存する"
+slug: pocket-for-qb
 description:
 tags:
   - "Linux"

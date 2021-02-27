@@ -1,6 +1,7 @@
 ---
 date: "2018-06-07T13:24:32+09:00"
 title: "Polybarの設定"
+slug: polybar-setting
 description: "前回に引き続きPolybarの設定"
 template: "post"
 category: "Article"

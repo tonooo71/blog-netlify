@@ -1,6 +1,7 @@
 ---
 date: "2018-08-02T08:33:02+09:00"
 title: "デュアルブートでVirtualBox"
+slug: virtualbox-vkms
 description: "今はWindows10とArch LinuxとのデュアルブートをしていてメインではLinux使っているんだけど、どうしてもWindows使いたい場合がある"
 template: "post"
 tags:

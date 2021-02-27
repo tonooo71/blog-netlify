@@ -1,6 +1,7 @@
 ---
 title: "IPv6環境下でRaspberry pi 4をIPv4接続"
 date: "2020-02-11T21:15:31.920892"
+slug: raspberry-pi-ipv4-and-ipv6
 description: "IPv6(IPoE)環境下でスイッチングハブを使ってRaspberry pi 4をIPv4接続し、外部からIPアドレスで接続できるようにする"
 tags:
   - "Raspberry pi"

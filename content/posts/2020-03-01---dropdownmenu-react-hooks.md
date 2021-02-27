@@ -1,5 +1,6 @@
 ---
 title: "React Hooksで作るメニュー外クリックで閉じるドロップダウンメニュー"
+slug: dropdownmenu-react-hooks
 date: "2020-03-01T21:38:23.133989"
 description: "React Hooksを用いてBootstrapみたいなドロップダウンメニューを作る"
 template: "post"

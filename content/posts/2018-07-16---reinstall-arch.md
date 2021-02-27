@@ -1,6 +1,7 @@
 ---
 date: "2018-07-16T02:05:47+09:00"
 title: "Arch Linux再インストールで詰まった点"
+slug: reinstall-arch
 description:
 template: "post"
 tags:

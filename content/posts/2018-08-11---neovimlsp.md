@@ -1,6 +1,7 @@
 ---
 date: "2018-08-11T15:56:24+09:00"
 title: "NeovimでLSPを使う"
+slug: neovimlsp
 description: "C++の開発環境をNeovimで実現しようとしていろいろ調べていたところ、NeovimにLanguage Server Protocol(LSP)を導入したという記事をいくつか見つけたのでやってみた"
 template: "post"
 tags:
@@ -13,8 +14,6 @@ C++の開発環境を Neovim で実現しようとしていろいろ調べてい
 
 LSP の説明は[この記事](https://qiita.com/atsushieno/items/ce31df9bd88e98eec5c4)読むとして、概略してコードの補完や参照などがエディタの種類にかかわらずアクセスすることで利用可能になるサーバーという認識で良いのかな。  
 これまでも`deoplete`と言語ごとにプラグインを導入することで補完をすることはできていたんだけど、LSP 使うと大分高速にできる、さらにリンターとしても利用できるみたいなので乗り換えてみようと思った次第です。
-
-
 
 ### LanguageClient-neovim
 
