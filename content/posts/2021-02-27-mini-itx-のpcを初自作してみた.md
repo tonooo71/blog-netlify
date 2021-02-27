@@ -1,7 +1,7 @@
 ---
 template: post
 title: mini-itx のPCを初自作してみた
-slug: "bulding-my-new-mini-itx-pc "
+slug: "building-my-new-mini-itx-pc "
 socialImage: /media/2021-02-27-pc1.jpg
 draft: false
 date: 2021-02-27T14:38:47.519Z
