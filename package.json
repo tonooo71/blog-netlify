@@ -81,6 +81,7 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-watch": "7.0.0",
+    "gatsby-plugin-robots-txt": "^1.5.5",
     "lost": "8.3.1",
     "postcss-pxtorem": "5.1.1",
     "prettier": "^2.2.1",

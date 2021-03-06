@@ -180,6 +180,23 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl: url
+              }
+            }
+          }
+        `,
+        // host: site.siteMetadata.siteUrl,
+        // sitemap: site.siteMetadata.siteUrl + "/sitemap.xml",
+        output: "/robots.txt",
+      },
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: siteConfig.title,
