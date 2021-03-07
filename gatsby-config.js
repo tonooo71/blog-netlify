@@ -172,17 +172,11 @@ module.exports = {
         `,
         output: "/sitemap.xml",
         serialize: ({ site, allSitePage }) =>
-          allSitePage.edges.map((edge) => {
-            const _url = site.siteMetadata.siteUrl + edge.node.path;
-            const url = _url.endsWith("/")
-              ? _url.slice(0, _url.length - 1)
-              : _url;
-            return {
-              url,
-              changefreq: "daily",
-              priority: 0.7,
-            };
-          }),
+          allSitePage.edges.map((edge) => ({
+            url: site.siteMetadata.siteUrl + edge.node.path,
+            changefreq: "daily",
+            priority: 0.7,
+          })),
       },
     },
     {
@@ -200,6 +194,7 @@ module.exports = {
         // host: site.siteMetadata.siteUrl,
         // sitemap: site.siteMetadata.siteUrl + "/sitemap.xml",
         output: "/robots.txt",
+        policy: [{ userAgent: "*", disallow: "" }],
       },
     },
     {
