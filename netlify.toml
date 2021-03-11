@@ -7,6 +7,5 @@
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
-    cache-control = "max-age=600"
     Content-Encoding = "gzip"
     Content-Type = "application/xml"
