@@ -269,5 +269,7 @@ module.exports = {
         allExtensions: true, // defaults to false
       },
     },
+    "gatsby-redirect-from",
+    "gatsby-plugin-meta-redirect", // make sure this is always the last one
   ],
 };
