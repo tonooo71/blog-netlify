@@ -9,6 +9,8 @@ tags:
   - "Arch Linux"
 draft: false
 category: "Article"
+redirect_from:
+  - /2018/07/180716_reinstall_arch/
 ---
 
 ## デュアルブート

@@ -9,6 +9,8 @@ tags:
   - "Arch Linux"
 draft: false
 category: "Article"
+redirect_from:
+  - /2018/08/180802_virtualbox_vkms/
 ---
 
 今は Windows10 と Arch Linux とのデュアルブートをしていてメインでは Linux 使っているんだけど、どうしても Windows 使いたい場合があって(Office とか Office とか Office とか)  

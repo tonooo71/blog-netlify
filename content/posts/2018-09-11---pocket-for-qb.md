@@ -8,6 +8,8 @@ tags:
 template: "post"
 draft: false
 category: "Article"
+redirect_from:
+  - /2018/09/180911_pocket_for_qb/
 ---
 
 最近使い始めた qutebrowser、結構使いやすいのもあってメインブラウザがこっちになりつつある  

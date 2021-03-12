@@ -9,6 +9,8 @@ tags:
   - "i3wm"
 draft: false
 category: "Article"
+redirect_from:
+  - /2018/09/180906_rofi-mpd-client/
 ---
 
 タイトルのとおり。  
