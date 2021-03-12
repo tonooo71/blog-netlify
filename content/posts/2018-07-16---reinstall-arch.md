@@ -10,7 +10,7 @@ tags:
 draft: false
 category: "Article"
 redirect_from:
-  - /2018/07/180716_reinstall_arch/
+  - /2018/180716_reinstall_arch/
 ---
 
 ## デュアルブート

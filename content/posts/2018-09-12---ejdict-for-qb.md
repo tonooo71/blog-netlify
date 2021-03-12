@@ -10,7 +10,7 @@ socialImage: "/media/2018-09-12-screenshot_ejdict.jpg"
 draft: false
 category: "Article"
 redirect_from:
-  - /2018/09/180912_ejdict_for_qb/
+  - /2018/180912_ejdict_for_qb/
 ---
 
 qutebrowser はアドオンが自由に追加できないのがあれだけど、`spawn`コマンドで簡単なものなら割とスクリプトで対応できるのが良い点  

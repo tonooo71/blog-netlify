@@ -9,7 +9,7 @@ tags:
 draft: false
 category: "Article"
 redirect_from:
-  - /2020/03/200301_reacthooks-dropdownmenu/
+  - /2020/200301_reacthooks-dropdownmenu/
 ---
 
 ## はじめに

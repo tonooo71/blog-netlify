@@ -10,7 +10,7 @@ socialImage: "/media/2020-05-05-all.jpg"
 draft: false
 category: "Article"
 redirect_from:
-  - /2020/05/200505_remotework/
+  - /2020/200505_remotework/
 ---
 
 ## はじめに

@@ -10,7 +10,7 @@ socialImage: "/media/2020-02-11-ipv6v4.png"
 draft: false
 category: "Article"
 redirect_from:
-  - /2020/02/200211_ipv4raspi/
+  - /2020/200211_ipv4raspi/
 ---
 
 ## 前提

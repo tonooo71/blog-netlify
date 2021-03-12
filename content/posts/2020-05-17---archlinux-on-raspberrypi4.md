@@ -11,7 +11,7 @@ tags:
   - "Linux"
   - "Raspberry pi"
 redirect_from:
-  - /2020/05/200517_setup_archlinux_on_raspi/
+  - /2020/200517_setup_archlinux_on_raspi/
 ---
 
 ## Arch Linux を Raspberry Pi にインストールする

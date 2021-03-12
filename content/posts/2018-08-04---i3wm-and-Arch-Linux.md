@@ -11,7 +11,7 @@ tags:
 draft: false
 category: "Article"
 redirect_from:
-  - /2020/03/200327_i3_arch_linux_setup/
+  - /2020/200327_i3_arch_linux_setup/
 ---
 
 ## 概要
