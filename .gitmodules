@@ -1,0 +1,3 @@
+[submodule "githubio"]
+	path = githubio
+	url = git@github.com:tonooo71/tonooo71.github.io.git

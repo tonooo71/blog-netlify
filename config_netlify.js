@@ -1,12 +1,12 @@
 "use strict";
 
 module.exports = {
-  url: "https://tonooo71.github.io",
+  url: "https://tonooo71.netlify.com",
   pathPrefix: "/",
   title: "RINotes",
-  subtitle: "Tonooo's personal blog powered by Gatsby.",
+  subtitle: "Tonooo's personal blog powered by Gatsby and Netlify CMS.",
   copyright: "© tonooo71 All rights reserved.",
-  disqusShortname: "rinotes",
+  disqusShortname: "https-tonooo71-netlify-app",
   postsPerPage: 4,
   googleAnalyticsId: "",
   useKatex: false,
