@@ -9,7 +9,7 @@ tags:
 draft: false
 category: "Article"
 redirect_from:
-  - /2018/180811_neovimlsp/
+  - /2018/180811_neovimlsp/180811_neovimlsp/
 ---
 
 C++の開発環境を Neovim で実現しようとしていろいろ調べていたところ、Neovim に Language Server Protocol(LSP)を導入したという記事をいくつか見つけたのでやってみた。

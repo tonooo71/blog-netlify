@@ -11,7 +11,7 @@ tags:
   - "i3wm"
 socialImage: "/media/2018-06-07-screenshot1806071323.jpg"
 redirect_from:
-  - /2018/180607_polybar_setting/
+  - /2018/180607_polybar_setting/180607_polybar_setting/
 ---
 
 ## 外観
