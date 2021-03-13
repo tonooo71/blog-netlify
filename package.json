@@ -1,5 +1,5 @@
 {
-  "version": "3.0.7",
+  "version": "1.0.0",
   "name": "blog",
   "description": "my personal blog powered by Gatsby and Netlify CMS",
   "scripts": {
