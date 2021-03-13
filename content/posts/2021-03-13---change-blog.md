@@ -184,7 +184,7 @@ Google Search Console と Google Analytics を使用するために
 主な理由として、Google Search Console でサイトマップファイル`sitemap.xml`が
 認識されなかったのがある。
 
-![sitemap]](/media/2021-03-13-sitemap.png)
+![sitemap](/media/2021-03-13-sitemap.png)
 
 XML ファイルの書式が違うのかと思い、元の Github.io で公開していたサイトマップファイルと
 比べてみたが同一のものだった。
