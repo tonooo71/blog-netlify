@@ -8,7 +8,7 @@ module.exports = {
   copyright: "© tonooo71 All rights reserved.",
   disqusShortname: "https-tonooo71-netlify-app",
   postsPerPage: 4,
-  googleAnalyticsId: "",
+  googleAnalyticsId: "G-LB3QQF6SNR",
   useKatex: false,
   menu: [
     {
