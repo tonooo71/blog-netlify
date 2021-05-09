@@ -6,6 +6,7 @@ msg="rebuilding site `date`"
 cd githubio
 ls | xargs rm -rf
 cp -r ../public/* ./
+cp -r ../../gunjin-shogi/dist gunjin-shogi # optional
 git add .
 
 if [ $# -eq 1 ]
